@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "id": "aircrack-ng",
+  "name": "Aircrack-ng",
+  "hub_manifest": "https://github.com/nostalgia2812/.github/blob/claude/tooling-filing-system-uG7Gs/.tooling/tool_manifest.json",
+  "category": "network-security",
+  "subcategory": "wireless-security",
+  "description": "Complete suite of tools to assess WiFi network security - monitoring, attacking, testing, cracking",
+  "language": "C",
+  "license": "GPL-2.0",
+  "maintainer": "nostalgia2812",
+  "status": "active",
+  "priority": "high",
+  "install": {
+    "apt": "sudo apt-get install aircrack-ng",
+    "brew": "brew install aircrack-ng",
+    "source": "https://www.aircrack-ng.org/doku.php?id=install_aircrack"
+  },
+  "health_check": "aircrack-ng --version",
+  "companion_tools": ["airmon-ng", "airodump-ng", "aireplay-ng", "airdecap-ng"],
+  "system_requirements": {
+    "wireless_monitor_mode": true,
+    "root_required": true,
+    "supported_os": ["linux", "macos", "windows"]
+  },
+  "ci_integration": ".github/workflows/tool-validation.yml",
+  "documentation": "https://github.com/nostalgia2812/.github/blob/claude/tooling-filing-system-uG7Gs/TOOLS_INDEX.md#aircrack-ng",
+  "tags": ["wireless", "wifi", "wpa", "network", "cracking", "monitoring", "high"],
+  "related_tools": [],
+  "last_updated": "2026-03-20"
+}
